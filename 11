@@ -1,0 +1,25 @@
+#include <stdio.h>
+unsigned long long factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+unsigned long long calculateUniqueKeys() {
+    unsigned long long totalKeys = factorial(25);
+    unsigned long long rowColumnPermutations = factorial(5) * factorial(5);
+    unsigned long long letterSwaps = 25 * 24;
+    unsigned long long uniqueKeys = totalKeys / (rowColumnPermutations * letterSwaps);
+
+    return uniqueKeys;
+}
+
+int main() {
+    unsigned long long uniqueKeys = calculateUniqueKeys();
+    printf("Number of effectively unique keys for Playfair cipher: %llu\n", uniqueKeys);
+
+    return 0;
+}
+OUTPUT:
+Number of effectively unique keys for Playfair cipher: 814182323793
